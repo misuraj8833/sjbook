@@ -22,4 +22,5 @@
         <item>Computer Engineering</item>
         <item>Extc</item>
     </string-array>
+    <string name="title_activity_createevent">createevent</string>
 </resources>

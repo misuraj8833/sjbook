@@ -3,28 +3,41 @@ package com.mishrafamily.sjbook;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    Button buttonTeacherSignup;
+    Button buttonStudentSignUp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        buttonTeacherSignup = (Button)findViewById(R.id.buttonTeacherSignup);
+        buttonStudentSignUp=(Button)findViewById(R.id.buttonStudentSignUp);
+
+        buttonTeacherSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("com.mishrafamily.NewEvent");
+                startActivity(intent);
+            }
+        });
+
+        buttonStudentSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getBaseContext(),"clicked",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent("com.mishrafamily.ShowEvent");
+                startActivity(intent);
+
+
+            }
+        });
     }
 
-    public void OnClick1(View view){
-        Intent intent = new Intent("com.mishrafamily.sjbook01");
-        startActivity(intent);
-    }
-    public void OnClick2(View view){
-        Intent intent1 = new Intent("com.mishrafamily.sjbook02");
-        startActivity(intent1);
-    }
-    public void OnClick3(View view){
-        Intent intent1 = new Intent("com.mishrafamily.sjbook04");
-        startActivity(intent1);
-    }
 
 }
