@@ -45,7 +45,13 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Sign_up_1">
+            <intent-filter>
+                <action android:name="com.mishrafamily.sjbook04" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 

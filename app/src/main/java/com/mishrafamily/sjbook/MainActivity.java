@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent1);
     }
     public void OnClick3(View view){
-        Intent intent1 = new Intent("com.mishrafamily.sjbook03");
+        Intent intent1 = new Intent("com.mishrafamily.sjbook04");
         startActivity(intent1);
     }
 
