@@ -27,7 +27,7 @@ import java.util.Map;
 public class ShowEvent extends AppCompatActivity {
     Firebase mref;
     RecyclerView recyclerView;
-    String url = "https://sjbook-b02b6.firebaseio.com/Events";
+    String url = "https://sjbook-b02b6.firebaseio.com/Information Technology";
 
 
     @Override
@@ -45,7 +45,6 @@ public class ShowEvent extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-       // Firebase ref = mref.child("Events");
         FirebaseRecyclerAdapter<String,EventViewHolder> firebaseRecyclerAdapter= new FirebaseRecyclerAdapter<String, EventViewHolder>(
                 String.class,
                 android.R.layout.two_line_list_item,

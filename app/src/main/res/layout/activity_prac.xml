@@ -12,27 +12,60 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Condition"
+        android:text="Select a department"
         android:id="@+id/textViewCondition"
+        android:layout_marginTop="73dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="69dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    <Button
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sunny"
-        android:id="@+id/buttonSunny"
+        android:id="@+id/editTextprac"
+        android:hint="Enter the event description"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerprac"
+        android:layout_alignBaseline="@+id/textViewCondition"
+        android:layout_alignBottom="@+id/textViewCondition"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/textViewCondition"
+        android:layout_toEndOf="@+id/textViewCondition"
+        android:spinnerMode="dropdown" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="foggy"
-        android:id="@+id/buttonfoggy"
-        android:layout_alignTop="@+id/buttonSunny"
-        android:layout_toRightOf="@+id/textViewCondition"
-        android:layout_toEndOf="@+id/textViewCondition" />
+        android:text="firebase"
+        android:id="@+id/buttonfirebase"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/editTextprac"
+        android:layout_alignEnd="@+id/editTextprac" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textViewPrac"
+        android:layout_below="@+id/spinnerprac"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listViewprac"
+        android:layout_below="@+id/editTextprac"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:choiceMode="none" />
+
 </RelativeLayout>
