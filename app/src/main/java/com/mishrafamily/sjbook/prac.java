@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -21,10 +22,11 @@ import com.firebase.ui.FirebaseListAdapter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class prac extends AppCompatActivity {
 
-    Firebase mref;
+    Firebase mref,mref1;
     EditText editTexpract;
     Button buttonfirebase;
     String dept;
@@ -65,32 +67,24 @@ public class prac extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String eventdes1 = editTexpract.getText().toString();
-                Events events = new Events(eventdes1);
                 mref = new Firebase("https://sjbook-b02b6.firebaseio.com");
-                mref.child(dept).setValue(events);
+               // String key = mref.child(dept).push().getKey();
+                mref.child(dept).push().setValue(eventdes1);
                 Toast.makeText(getBaseContext(), "Values Persisted", Toast.LENGTH_SHORT).show();
 
             }
         });
     }
-    public class Events {
-        public String eventdes;
-        public Events() {
-            // Default constructor required for calls to DataSnapshot.getValue(User.class)
-        }
 
-        public Events(String eventdes) {
-            this.eventdes = eventdes;
-        }
 
-    }
-
-   @Override
+  @Override
     protected void onStart() {
         super.onStart();
 
 
-     mref = new Firebase("https://sjbook-b02b6.firebaseio.com/Civil");
+     mref = new Firebase("https://sjbook-b02b6.firebaseio.com/Mechanical");
+      //mref1= mref.child(dept);
+
        // mref.addValueEventListener(new ValueEventListener() {
          //   @Override
            // public void onDataChange(DataSnapshot dataSnapshot) {
@@ -105,14 +99,14 @@ public class prac extends AppCompatActivity {
             public void onCancelled(FirebaseError firebaseError) {
 
             }
-        });*/
+        });
+*/
 
-
-       FirebaseListAdapter<String> firebaseListAdapter = new FirebaseListAdapter<String>(
+      FirebaseListAdapter<String> firebaseListAdapter = new FirebaseListAdapter<String>(
                this,
                String.class,
                android.R.layout.simple_list_item_1,
-               mref
+                mref
        ) {
            @Override
            protected void populateView(View view, String s, int i) {
