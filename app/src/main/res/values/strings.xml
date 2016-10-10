@@ -2,6 +2,18 @@
     <string name="app_name">SJbook</string>
     <string name="title_activity_login">Sign in</string>
 
+    <!--for the menu item to be displayed-->
+    <string name="Item1">Civil</string>
+    <string name="Item2">Computer Engineering</string>
+    <string name="Item3">Extc</string>
+    <string name="Item4">Information Technology</string>
+    <string name="Item5">Mechanical </string>
+
+
+    <!--For the sign-out-->
+    <string name="signOut">Sign Out</string>
+
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -22,5 +34,4 @@
         <item>Computer Engineering</item>
         <item>Extc</item>
     </string-array>
-    <string name="title_activity_createevent">createevent</string>
 </resources>

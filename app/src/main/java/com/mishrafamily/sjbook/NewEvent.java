@@ -2,6 +2,8 @@ package com.mishrafamily.sjbook;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -74,5 +76,32 @@ public class NewEvent extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //return super.onCreateOptionsMenu(menu);
+        createMenu(menu);
+        return true;
+    }
+
+    private void createMenu(Menu menu) {
+        MenuItem mnu=menu.add(0,1,1,R.string.signOut);
+        {
+            mnu.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //return super.onOptionsItemSelected(item);
+        selectItem(item);
+        return true;
+    }
+
+    private void selectItem(MenuItem item) {
+        int itemId=item.getItemId();
+        switch (itemId){
+            case 1:Toast.makeText(getBaseContext(),"To be Implemented",Toast.LENGTH_SHORT).show();
+        }
+    }
 }
 
