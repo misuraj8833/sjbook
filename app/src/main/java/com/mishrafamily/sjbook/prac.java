@@ -27,10 +27,10 @@ import java.util.Random;
 public class prac extends AppCompatActivity {
 
     Firebase mref,mref1;
-    EditText editTexpract;
+   EditText editTexpract;
     Button buttonfirebase;
     String dept;
-    TextView textViewprac;
+   // TextView textViewprac;
     ListView listView;
 
 
@@ -39,6 +39,8 @@ public class prac extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prac);
         Firebase.setAndroidContext(this);
+
+        //code for spinner view for the Faculty input.---------------
 
         Spinner spinner_dept = (Spinner) findViewById(R.id.spinnerprac);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -58,10 +60,10 @@ public class prac extends AppCompatActivity {
 
             }
         });
-
+//-----------------------------------------------------------------------------
         buttonfirebase = (Button) findViewById(R.id.buttonfirebase);
         editTexpract = (EditText) findViewById(R.id.editTextprac);
-        textViewprac =(TextView)findViewById(R.id.textViewPrac);
+        //textViewprac =(TextView)findViewById(R.id.textViewPrac);
         listView =(ListView)findViewById(R.id.listViewprac);
         buttonfirebase.setOnClickListener(new View.OnClickListener() {
             @Override

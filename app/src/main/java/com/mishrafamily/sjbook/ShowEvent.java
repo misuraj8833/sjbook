@@ -1,33 +1,25 @@
 package com.mishrafamily.sjbook;
 
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.firebase.client.ChildEventListener;
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
 import com.firebase.ui.FirebaseListAdapter;
 import com.firebase.ui.FirebaseRecyclerAdapter;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Map;
 
 
 public class ShowEvent extends AppCompatActivity {
     Firebase mref;
-    RecyclerView recyclerView;
-    String url = "https://sjbook-b02b6.firebaseio.com/Information Technology";
+    ListView listViewShowEvent;
+    //String url = "https://sjbook-b02b6.firebaseio.com/Information Technology";
 
 
     @Override
@@ -35,37 +27,62 @@ public class ShowEvent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_event);
         Firebase.setAndroidContext(this);
-        mref = new Firebase(url);
-        recyclerView=(RecyclerView)findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        listViewShowEvent =(ListView)findViewById(R.id.listViewShowEvent);
+        //--------------------------------------------------------------------------------
 
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+        //createMenu(menu);
+        //ToDo:Create overflow menu form the book.
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+        //selectItem(item);
+        //TODO:create class to handle the events
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseRecyclerAdapter<String,EventViewHolder> firebaseRecyclerAdapter= new FirebaseRecyclerAdapter<String, EventViewHolder>(
+
+       mref = new Firebase("https://sjbook-b02b6.firebaseio.com/Civil");
+       FirebaseListAdapter<String> firebaseListAdapter = new FirebaseListAdapter<String>(
+                this,
                 String.class,
                 android.R.layout.two_line_list_item,
-                EventViewHolder.class,
                 mref
         ) {
             @Override
-            protected void populateViewHolder(EventViewHolder eventViewHolder, String s, int i) {
-                eventViewHolder.textView.setText(s);
+            protected void populateView(View view, String s, int i) {
+                TextView textView =(TextView)view.findViewById(android.R.id.text1);
+                textView.setText(s);
+
             }
         };
-        recyclerView.setAdapter(firebaseRecyclerAdapter);
+        listViewShowEvent.setAdapter(firebaseListAdapter);
+      //TODO:add filtering capability from the book
+
+
+
+
+
+
+
+
 
     }
 
-   public class EventViewHolder extends RecyclerView.ViewHolder{
-       TextView textView;
-       public EventViewHolder(View itemView) {
-           super(itemView);
-           textView=(TextView)itemView.findViewById(android.R.id.text1);
-       }
-   }
+
+
 }
+
+
+
 
