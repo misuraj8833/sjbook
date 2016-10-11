@@ -11,6 +11,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Button buttonTeacherSignup;
     Button buttonStudentSignUp;
+    Button buttonLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonTeacherSignup = (Button)findViewById(R.id.buttonTeacherSignup);
         buttonStudentSignUp=(Button)findViewById(R.id.buttonStudentSignUp);
+        buttonLogin= (Button) findViewById(R.id.buttonLogin);
 
         buttonTeacherSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +37,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent("com.mishrafamily.ShowEvent");
                 startActivity(intent);
 
+
+            }
+        });
+
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(MainActivity.this,LoginActivity.class));
 
             }
         });

@@ -32,7 +32,7 @@ dependencies {
     compile 'com.android.support:design:24.0.0-alpha2'
     compile 'com.firebase:firebase-client-android:2.3.1'
     compile 'com.firebaseui:firebase-ui:0.3.1'
-    //complie 'com.google.firebase:firebase-auth:9.6.1'
+   // complie 'com.google.firebase:firebase-auth:9.6.1'
 
 }
 apply plugin: 'com.google.gms.google-services'
