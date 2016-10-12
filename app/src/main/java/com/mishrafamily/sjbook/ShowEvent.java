@@ -1,6 +1,7 @@
 package com.mishrafamily.sjbook;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -24,7 +25,6 @@ public class ShowEvent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_event);
-        Firebase.setAndroidContext(this);
         listViewShowEvent =(ListView)findViewById(R.id.listViewShowEvent);
         //--------------------------------------------------------------------------------
 
@@ -63,6 +63,10 @@ public class ShowEvent extends AppCompatActivity {
         MenuItem mnu6=menu.add(0,5,5,R.string.signOut);
         {
             mnu6.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        }
+        MenuItem mnu7=menu.add(0,6,6,"About Us");
+        {
+            mnu7.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         }
     }
 
@@ -166,6 +170,12 @@ public class ShowEvent extends AppCompatActivity {
             case 5:Toast.makeText(getBaseContext(),"To Be Implemented",Toast.LENGTH_SHORT).show();
                 break;
                 //TODO:To implement signout method.
+
+//------------------------------------------------------------------------------------------------------------------
+            case 6:Intent intent = new Intent("com.mishrafamily.AboutUs");
+                startActivity(intent);
+                break;
+
 
         }
 

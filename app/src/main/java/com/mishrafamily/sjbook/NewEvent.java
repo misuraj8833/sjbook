@@ -1,5 +1,6 @@
 package com.mishrafamily.sjbook;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -44,10 +45,6 @@ public class NewEvent extends AppCompatActivity {
 
             }
         });
-
-        //Firebase Reference
-        Firebase.setAndroidContext(this);
-
         editTextEventDescription=(EditText)findViewById(R.id.editTextEventDescription);
         buttonSubmit=(Button)findViewById(R.id.buttonSubmit);
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +85,10 @@ public class NewEvent extends AppCompatActivity {
         {
             mnu.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
         }
+        MenuItem mnu1=menu.add(0,2,2,"About us");
+        {
+            mnu.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        }
     }
 
     @Override
@@ -101,6 +102,9 @@ public class NewEvent extends AppCompatActivity {
         int itemId=item.getItemId();
         switch (itemId){
             case 1:Toast.makeText(getBaseContext(),"To be Implemented",Toast.LENGTH_SHORT).show();
+            case 2:Intent intent = new Intent("com.mishrafamily.AboutUs");
+                startActivity(intent);
+                break;
         }
     }
 }
